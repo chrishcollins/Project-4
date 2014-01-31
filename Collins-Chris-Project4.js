@@ -128,7 +128,7 @@ function dayDifference(date1, date2, days) {
 var date1;
 var date2;
 
-if (days === "hours") {
+if (days == "hours") {
     counter = 0;
     dateHold = null;
     if (date1 > date2) {
@@ -141,7 +141,7 @@ if (days === "hours") {
         date1.setTime(date1.getTime() + (60 * 60 * 1000));
         counter ++;
     }
-    console.log("The difference between days and hours is " + (counter));
+    console.log("The difference between hours and days is " + (counter));
     return counter;
 }
 else if (days == "days") {
@@ -157,7 +157,7 @@ else if (days == "days") {
         date1.setTime(date1.getTime() + (60 * 60 * 1000 * 24));
         counter ++;
     }
-    console.log("The difference between days and hours is " + (counter));
+    console.log("The difference between hours and days is " + (counter*24));
     return counter;       
 };
 
