@@ -113,8 +113,7 @@ return true;
 
 };
 
-var passing = true
-var passing = pattern("123-456-7890");
+pattern("123-456-7890");
 
 
 
@@ -126,11 +125,10 @@ var passing = pattern("123-456-7890");
 
 //Find the number of hours or days difference between two dates.
 function dayDifference(date1, date2, days) {
-
 var date1;
 var date2;
 
-if (days == "hours") {
+if (days === "hours") {
     counter = 0;
     dateHold = null;
     if (date1 > date2) {
@@ -142,11 +140,9 @@ if (days == "hours") {
 
         date1.setTime(date1.getTime() + (60 * 60 * 1000));
         counter ++;
-
     }
     console.log("The difference between days and hours is " + (counter));
     return counter;
-
 }
 else if (days == "days") {
     counter = 0;
@@ -160,16 +156,14 @@ else if (days == "days") {
         
         date1.setTime(date1.getTime() + (60 * 60 * 1000 * 24));
         counter ++;
-
     }
     console.log("The difference between days and hours is " + (counter));
-    return counter;
-        
+    return counter;       
 };
 
-
 };
 
+console.log(dayDifference(new Date("2013-01-01"), new Date("2013-01-03"), "days"));
 
 
 
@@ -179,66 +173,15 @@ else if (days == "days") {
 //Given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: “a” + [{a:2},{a:3},{a:1}] --> [{a:1},{a:2
 function customSort(arr, key)
 {
+    
     for (var i = 0; i < arr.length; i++)
     {
-        // get the current object
-        var ob = arr[i];
-        
-        // get the list of keys for the object
-        var obKey = ob.keys();
-        // only 1 key, so get the first element of the array
-        obKey = obKey[0];
-        
-        for (var j = i; j < arr.length; j++)
+
+        for (var j = i+1; j < arr.length; j++)
         {
-            if (i == j)
-                continue;
-            
-                
-                var obi = arr[i];
-                var obj = arr[j];
-                
-                var obiKey = obi.keys();
-                var objKey = obj.keys();
-                
-                obiKey = obiKey[0];
-                objKey = objKey[0];
-                
-                // if the first object (i) has the wrong key but
-                // object (j) has the right one
-                if (obiKey != key && objKey == key)
-                {
-                    var tmp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = tmp;
-                }
-        }
-    }
-    
-    // part 2 - sort by value
-    for (var i = 0; i < arr.length; i++)
-    {
-        var obi = arr[i];
-        var obiKey = obi.keys();
-        obiKey = obiKey[0];    
-        
-        if (obiKey != key)
-            continue;
-    
-        for (var j = i; j < arr.length; j++)
-        {
-            if (i == j)
-                continue;
-            
-            var obj = arr[j];
-            var objKey = obj.keys();
-            objKey = objKey[0];
-            
-            if (objKey != key)
-                continue;
-            
+
             // if the value of the first object is > value of 2nd
-            if (obi[key] > obj[key])
+            if (arr[i][key] > arr[j][key] || arr[i][key] === undefined)
             {
                 tmp = arr[i];
                 arr[i] = arr[j];
@@ -250,3 +193,6 @@ function customSort(arr, key)
     return arr;
     
 }
+
+customSort([{a:2},{b:3},{a:1},{a:4}], "a");
+console.log(customSort([{a:2},{b:3},{a:1},{a:4}], "a"));
