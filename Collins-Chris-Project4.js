@@ -142,10 +142,10 @@ if (days == "hours") {  //conditional
     }
     while (date1.getTime() < date2.getTime()) { //while loop
 
-        date1.setTime(date1.getTime() + (60 * 60 * 1000));
+        date1.setTime(date1.getTime() + (60 * 60 * 1000*24));
         counter ++;
     }
-    console.log("The difference between hours and days is " + (counter)); // output
+    console.log(counter); // output
     return counter; //return
 }
 else if (days == "days") { //conditional
@@ -158,7 +158,7 @@ else if (days == "days") { //conditional
     }
     while(date1.getTime() < date2.getTime()) { //while loop
         
-        date1.setTime(date1.getTime() + (60 * 60 * 1000 * 24));
+        date1.setTime(date1.getTime() + (60 * 60 * 1000*24));
         counter ++;
     }
     console.log("The difference between hours and days is " + (counter*24)); //output
